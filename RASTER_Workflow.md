@@ -38,7 +38,9 @@ into **web-ready, Cloud-Optimized GeoTIFFs (COG)** for publication.
 
 ```bash
 cp /mnt/c/.../image.tif ~/gis_work/src/
-Generate Web-Optimized COG (EPSG:3857)
+
+### 2️⃣ Generate Web-Optimized COG (EPSG:3857)
+
 cd ~/gis_work/build
 
 gdalwarp \
@@ -55,29 +57,23 @@ gdalwarp \
 
 Result expectations:
 
-RGB (no alpha)
+- RGB (no alpha)
+- Pyramids embedded
+- Instant multi-scale rendering
+- Reasonable file size
 
-Pyramids embedded
-
-Instant multi-scale rendering
-
-Reasonable file size
-
-3️⃣ Validation
+### 3️⃣ Validation
 
 Open in QGIS and check:
 
-correct colors
-
-no black borders
-
-smooth zoom
-
-correct CRS (EPSG:3857)
+- correct colors
+- no black borders
+- smooth zoom
+- correct CRS (EPSG:3857)
 
 If black → redo.
 
-4️⃣ Move to publish
+### 4️⃣ Move to publish
 cp OUTPUT_3857_cog.tif ~/gis_work/publish/
 
 Deployment to GeoServer
@@ -85,7 +81,6 @@ Deployment to GeoServer
 Target path (recommended):
 
 /opt/geoserver/data_dir/data/rasters/<project>/
-
 
 Upload:
 
@@ -112,11 +107,9 @@ Add WMS layer
 
 Expected result:
 
-instant display
-
-correct colors
-
-smooth zoom
+- instant display
+- correct colors
+- smooth zoom
 
 If black tiles:
 
